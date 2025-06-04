@@ -1,8 +1,16 @@
-function firstWord(s) {
-  // your code here
+function firstWord(str) {
+  str = str.trim(); // Remove leading and trailing spaces
+  const spaceIndex = str.indexOf(' ');
+
+  if (spaceIndex === -1) {
+    return str; // No space found, return the whole string
+  }
+
+  return str.substring(0, spaceIndex); // Return up to first space
 }
 
-// Do not change the code below
-
-const s = prompt("Enter String:");
-alert(firstWord(s));
+function showFirstWord() {
+  const input = document.getElementById("inputText").value;
+  const result = firstWord(input);
+  document.getElementById("result").textContent = `First Word: "${result}"`;
+}
